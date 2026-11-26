@@ -844,6 +844,94 @@ body.hc{background:#000}
 .limit-row b{color:#fff;font-weight:800}
 .amount-kr{font-size:1.05rem;font-weight:800;color:var(--primary);min-height:1.4em;margin-bottom:2px}
 .amount{overflow-wrap:anywhere}
+
+/* ---------- 별점 · 혜택 ---------- */
+.stars{display:inline-flex;gap:1px;font-size:1.05em;line-height:1;vertical-align:-.1em}
+.stars.sm{font-size:.9em}
+.st-i{font-style:normal;background:linear-gradient(90deg,#FFB400 var(--f),#D5D9DE var(--f));-webkit-background-clip:text;background-clip:text;color:transparent}
+.store-card .e{grid-row:1/4}
+.sc-meta{display:flex;align-items:center;gap:.4em;flex-wrap:wrap;grid-column:2;margin-top:.15em}
+.rate-line{font-size:.78em;color:var(--text-2);font-weight:700}
+.rate-line b{color:#E89A00;font-weight:900}
+.rate-line small{color:var(--text-3);font-weight:600}
+.bn-badge{font-size:.68em;font-weight:800;padding:.18em .5em;border-radius:.5em;white-space:nowrap}
+.bn-badge.event{background:#FFF1D6;color:#B86E00}
+.bn-badge.collab{background:#EDE7FF;color:#6435D8}
+.k-store-info{display:flex;flex-direction:column;gap:.6em;margin-top:1.1em}
+.si-rate{display:flex;align-items:center;gap:.7em;background:var(--surface-2);border-radius:1em;padding:.7em .9em;text-align:left;border:2px solid var(--line)}
+.si-big{font-size:1.9em;font-weight:900;color:#E89A00;line-height:1}
+.si-mid{display:flex;flex-direction:column;gap:.2em;flex:1}
+.si-mid .stars{font-size:1.15em}
+.si-mid small{font-size:.75em;color:var(--text-3);font-weight:700}
+.si-more{font-size:.8em;font-weight:800;color:var(--store)}
+.si-quote{font-size:.85em;color:var(--text-2);font-weight:600;line-height:1.5;padding:0 .3em}
+.si-quote small{color:var(--text-3);white-space:nowrap}
+.si-bn{border-radius:1em;padding:.8em .9em;display:flex;flex-direction:column;gap:.3em;font-size:.86em;line-height:1.5}
+.si-bn.event{background:#FFF6E3;border:2px dashed #F2B544}
+.si-bn.collab{background:#F3EFFF;border:2px dashed #A58BF0}
+.si-bn > b{font-size:1.05em;font-weight:900}
+.si-bn > span{color:var(--text-2);font-weight:600}
+.stamp-card{display:grid;grid-template-columns:repeat(5,1fr);gap:.35em;margin-top:.3em}
+.stamp-card i{font-style:normal;aspect-ratio:1;border-radius:50%;border:2px dashed #C9A27A;display:grid;place-items:center;font-size:.85em;font-weight:800;color:#C9A27A;background:#fff}
+.stamp-card i.on{border:2px solid #8B5E3C;background:#FCEBD5;font-size:1.05em}
+.stamp-txt{color:#8B5E3C;font-weight:700}
+.place-grid{margin-top:1em}
+.sum .disc b{color:var(--green)}
+.s-benefit:empty{display:none}
+.s-benefit{display:flex;flex-direction:column;gap:.45em;margin-top:.8em}
+.bn-h{font-size:.85em;font-weight:900}
+.bn-opt{display:flex;align-items:center;gap:.6em;text-align:left;border:2px solid var(--line);border-radius:.9em;padding:.65em .75em;background:var(--surface)}
+.bn-opt span:nth-child(2){flex:1;display:flex;flex-direction:column}
+.bn-opt b{font-size:.9em;font-weight:800}
+.bn-opt small{font-size:.74em;color:var(--text-3);font-weight:600}
+.bn-opt em{font-style:normal;font-weight:900;color:var(--green);font-size:.92em;white-space:nowrap}
+.bn-opt .bx{width:1.4em;height:1.4em;border-radius:.4em;border:2px solid #C9CED6;display:grid;place-items:center;font-weight:900;font-size:.85em;flex-shrink:0}
+.bn-opt.on{border-color:var(--green);background:var(--green-soft)}
+.bn-opt.on .bx{background:var(--green);border-color:var(--green);color:#fff}
+.bn-opt:disabled{opacity:.55;cursor:not-allowed}
+.bn-note{font-size:.84em;font-weight:600;color:var(--text-2);background:#FFF6E3;border-radius:.8em;padding:.65em .8em;line-height:1.5}
+.done-benefit{font-size:.88em;font-weight:600;color:var(--text-2);background:#FFF6E3;border-radius:.8em;padding:.6em .8em;line-height:1.5;width:100%}
+.done-benefit:empty{display:none}
+.rc-event{border:1.5px dashed #555;border-radius:6px;padding:8px 10px;margin:10px 0 4px;text-align:center;font-size:.8rem;line-height:1.55}
+.rc-event b{display:block;font-size:.9rem;margin-bottom:2px}
+.rc-event small{color:#666}
+.rc-stamps{display:block;letter-spacing:.25em;font-size:1rem;margin:2px 0}
+.rv-sum{display:flex;gap:16px;align-items:center;margin-top:16px;background:var(--surface-2);border-radius:18px;padding:16px;flex-wrap:wrap}
+.rv-avg{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:96px}
+.rv-avg b{font-size:2.4rem;font-weight:900;line-height:1;color:#E89A00}
+.rv-avg .stars{font-size:1.15rem}
+.rv-avg small{font-size:.75rem;color:var(--text-3);font-weight:700}
+.rv-bars{flex:1;min-width:160px;display:flex;flex-direction:column;gap:5px}
+.rv-bars div{display:grid;grid-template-columns:2.4em 1fr 2.8em;gap:8px;align-items:center;font-size:.8rem;font-weight:700;color:var(--text-2)}
+.rv-bars i{height:8px;border-radius:9px;background:var(--surface-3);overflow:hidden}
+.rv-bars em{display:block;height:100%;background:#FFB400;border-radius:9px}
+.rv-bars small{color:var(--text-3);text-align:right}
+.rv-list{display:flex;flex-direction:column;margin-top:10px}
+.rv{padding:14px 2px;border-bottom:1px solid var(--line)}
+.rv:last-child{border-bottom:0}
+.rv-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rv-top small{margin-left:auto;color:var(--text-3);font-weight:600;font-size:.8rem}
+.rv-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
+.rv-tags span{font-size:.76rem;font-weight:700;padding:3px 8px;border-radius:7px;background:var(--surface-3);color:var(--text-2)}
+.rv p{margin-top:7px;line-height:1.55;font-weight:500;color:var(--text-2)}
+.rate-stars{display:flex;justify-content:center;gap:4px;margin-top:16px}
+.rate-stars button{font-size:2.9rem;line-height:1;color:#D5D9DE;padding:4px;transition:transform .1s,color .1s}
+.rate-stars button.on{color:#FFB400}
+.rate-stars button:active{transform:scale(.9)}
+.rate-word{text-align:center;font-size:1.1rem;font-weight:600;margin-top:6px;color:var(--text-2)}
+.rate-word b{color:#E89A00}
+.rt-text{font:inherit;font-weight:600;width:100%;padding:12px 14px;border-radius:14px;border:2px solid var(--line);resize:none;background:var(--surface);color:var(--text)}
+.rt-text:focus{outline:none;border-color:var(--primary)}
+.my-rate{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;font-weight:700;color:var(--text-2);padding:0 6px}
+.stamp-wrap{background:#FFF8EE;border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:6px;max-width:420px}
+.stamp-wrap > b{font-weight:800}
+.cp{display:flex;align-items:center;gap:12px;margin-top:10px;padding:12px 14px;border-radius:16px;border:2px dashed #F2B544;background:#FFFBF2}
+.cp-l{font-size:1.8rem}
+.cp-m{flex:1;display:flex;flex-direction:column}
+.cp-m b{font-weight:800}
+.cp-m small{color:var(--text-3);font-weight:600;font-size:.82rem}
+.cp-r{font-weight:900;color:#B86E00}
+body.hc .si-bn,body.hc .bn-note,body.hc .done-benefit,body.hc .stamp-wrap,body.hc .cp,body.hc .stamp-card i{background:var(--surface-2);color:var(--text)}
 </style>
 
 <header class="appbar">
@@ -917,6 +1005,7 @@ body.hc{background:#000}
         <div class="k-pad hidden" id="k1">
           <p class="k-q">어디에서 드시나요?</p>
           <p>둘 중 하나를 눌러 주세요</p>
+          <div class="k-store-info" id="k-store-info"></div>
           <div class="place-grid">
             <button class="place" onclick="selectPlace('매장에서 먹기')"><span class="e">🍽️</span><b>매장에서 먹기</b><span>가게 안에서 먹어요</span></button>
             <button class="place" onclick="selectPlace('포장하기')"><span class="e">🛍️</span><b>포장하기</b><span>가지고 나가요</span></button>
@@ -941,8 +1030,11 @@ body.hc{background:#000}
             <div><span>가게</span><b id="s-store"></b></div>
             <div><span>식사 장소</span><b id="s-place"></b></div>
             <div><span>메뉴 개수</span><b id="s-count"></b></div>
+            <div><span>주문 금액</span><b class="num" id="s-sub"></b></div>
+            <div class="hidden disc" id="s-disc-row"><span>할인</span><b class="num" id="s-disc"></b></div>
             <div class="tot"><span>결제할 금액</span><b class="num" id="s-price"></b></div>
           </div>
+          <div class="s-benefit" id="s-benefit"></div>
           <div class="pay-methods">
             <button class="pm on" id="pm-card" onclick="pickPay('card')"><span class="e">💳</span>카드 결제</button>
             <button class="pm" id="pm-phone" onclick="pickPay('phone')"><span class="e">📱</span>휴대폰 결제</button>
@@ -962,6 +1054,7 @@ body.hc{background:#000}
             <div class="order-no"><small>주문번호</small><b id="order-no">A-127</b></div>
             <div class="done-items" id="done-items"></div>
             <p style="font-weight:600;color:var(--text-2);font-size:.95em;line-height:1.5" id="done-msg">번호가 화면에 나오면 음식을 받아 가세요.</p>
+            <p class="done-benefit" id="done-benefit"></p>
             <div id="receipt-ask" style="width:100%;margin-top:1em">
               <p style="font-weight:800;margin-bottom:.6em">영수증을 받으시겠어요?</p>
               <div class="row-btns"><button class="k-btn gray" onclick="receipt(false)">괜찮아요</button><button class="k-btn" onclick="receipt(true)">🧾 받을게요</button></div>
@@ -1258,6 +1351,7 @@ body.hc{background:#000}
       <p class="sub">주문한 음식, 영화표, 택시 이용, 병원 접수 기록을 여기서 다시 확인할 수 있어요.</p>
     </div>
   </div>
+  <div class="card"><div class="card-title">🎁 내 쿠폰 · 스탬프 <span class="badge" id="cp-count">0장</span></div><div id="my-benefits"></div></div>
   <div class="card"><div class="card-title">🍽️ 음식 주문 <span class="badge" id="ord-count">0건</span></div><div id="ord-list"></div></div>
   <div class="card"><div class="card-title">🎟️ 영화표 <span class="badge" id="tk-count">0장</span></div><div id="tk-list"></div></div>
   <div class="card"><div class="card-title">🚕🏥 택시 · 병원 기록 <span class="badge" id="etc-count">0건</span></div><div id="etc-list"></div></div>
@@ -1347,7 +1441,7 @@ const stores = {
   pizza:{ name:'화덕 피자', emoji:'🍕', color:'#FF6B00', desc:'피자 · 오븐 · 사이드',
     cats:[{id:'main',label:'🍕 피자'},{id:'side',label:'🍗 사이드'},{id:'drink',label:'🥤 음료·소스'}],
     items:{
-      main:[{id:'p1',name:'페퍼로니 피자',price:15900,e:'🍕',tag:'인기'},{id:'p2',name:'불고기 피자',price:17900,e:'🍕'},{id:'p3',name:'콤비네이션',price:16900,e:'🍕'},{id:'p4',name:'치즈 피자',price:14900,e:'🧀'},{id:'p5',name:'고구마 피자',price:17900,e:'🍠',tag:'달콤해요'},{id:'p6',name:'포테이토 피자',price:17900,e:'🥔'},{id:'p7',name:'하와이안 피자',price:16900,e:'🍍'},{id:'p8',name:'새우 피자',price:19900,e:'🍤'},{id:'p9',name:'반반 피자',price:18900,e:'🌓',tag:'두 맛'},{id:'p10',name:'야채 피자',price:15900,e:'🫑'}],
+      main:[{id:'pcol',name:'〈귀신잡는 삼촌들〉 콜라보 피자 세트',price:21900,e:'👻',tag:'콜라보 한정 · 포토카드'},{id:'p1',name:'페퍼로니 피자',price:15900,e:'🍕',tag:'인기'},{id:'p2',name:'불고기 피자',price:17900,e:'🍕'},{id:'p3',name:'콤비네이션',price:16900,e:'🍕'},{id:'p4',name:'치즈 피자',price:14900,e:'🧀'},{id:'p5',name:'고구마 피자',price:17900,e:'🍠',tag:'달콤해요'},{id:'p6',name:'포테이토 피자',price:17900,e:'🥔'},{id:'p7',name:'하와이안 피자',price:16900,e:'🍍'},{id:'p8',name:'새우 피자',price:19900,e:'🍤'},{id:'p9',name:'반반 피자',price:18900,e:'🌓',tag:'두 맛'},{id:'p10',name:'야채 피자',price:15900,e:'🫑'}],
       side:[{id:'ps1',name:'치즈 오븐 스파게티',price:6500,e:'🍝'},{id:'ps2',name:'치킨 윙 4조각',price:5500,e:'🍗'},{id:'ps3',name:'마늘 빵',price:3000,e:'🥖'},{id:'ps4',name:'치킨 텐더 5조각',price:6900,e:'🍗'},{id:'ps5',name:'웨지 감자',price:4500,e:'🥔'},{id:'ps6',name:'콘 샐러드',price:3500,e:'🌽'},{id:'ps7',name:'치즈 볼 5개',price:4500,e:'🧀'},{id:'ps8',name:'시저 샐러드',price:5900,e:'🥗'},{id:'ps9',name:'초코 브라우니',price:3500,e:'🍫'}],
       drink:[{id:'pd1',name:'콜라 1.25L',price:2800,e:'🥤'},{id:'pd2',name:'마늘 소스',price:500,e:'🧄'},{id:'pd3',name:'피클',price:500,e:'🥒'},{id:'pd4',name:'사이다 1.25L',price:2800,e:'🥤'},{id:'pd5',name:'제로 콜라 500ml',price:2000,e:'🥤'},{id:'pd6',name:'핫소스',price:300,e:'🌶️'},{id:'pd7',name:'파마산 치즈 가루',price:300,e:'🧀'},{id:'pd8',name:'오렌지 주스',price:2500,e:'🧃'},{id:'pd9',name:'생수',price:1000,e:'💧'}]
     },
@@ -1466,7 +1560,7 @@ function showK(n){
 }
 function renderStores(){
   $('store-grid').innerHTML = Object.entries(stores).map(([k,s])=>
-    `<button class="store-card" style="--c:${s.color}" onclick="selectStore('${k}')"><span class="e">${pic(s.emoji)}</span><b>${s.name}</b><span>${s.desc}</span></button>`).join('');
+    `<button class="store-card" style="--c:${s.color}" onclick="selectStore('${k}')"><span class="e">${pic(s.emoji)}</span><b>${s.name}</b><span>${s.desc}</span><span class="sc-meta">${storeRatingLine(k)}${benefitBadge(k)}</span></button>`).join('');
 }
 function setKioskSize(sz, btn){
   $('kiosk').className = 'kiosk ' + (sz==='md'?'':sz);
@@ -1478,7 +1572,7 @@ function selectStore(k){
   document.documentElement.style.setProperty('--store', s.color);
   document.documentElement.style.setProperty('--table', tables[k]);
   $('k-title').textContent = s.emoji+' '+s.name; $('k-subtitle').textContent = s.desc;
-  showK(1); setGuide(1);
+  kBenefit=null; renderStoreInfo(); showK(1); setGuide(1);
   speak(`${s.name}을 고르셨어요. 매장에서 드실지, 포장하실지 눌러 주세요.`);
 }
 function selectPlace(p){
@@ -1544,7 +1638,7 @@ function goPay(){
   if(!cart.length){ alertSheet('🛒','아직 담은 메뉴가 없어요','먹고 싶은 메뉴 그림을 먼저 눌러 주세요.','장바구니가 비어 있어요. 메뉴를 먼저 눌러 주세요.'); return; }
   $('s-store').textContent = stores[kStore].name; $('s-place').textContent = kPlace;
   $('s-count').textContent = cart.reduce((a,c)=>a+c.count,0)+'개';
-  $('s-price').textContent = won(cart.reduce((a,c)=>a+c.price*c.count,0));
+  renderBenefits();
   $('s-items').innerHTML = '<p class="si-h">🧾 주문한 메뉴</p>' + cart.map(c=>`<div class="si"><span>${pic(c.e)} ${c.name}</span><em class="num">×${c.count}</em><b class="num">${won(c.price*c.count)}</b></div>`).join('');
   pickPay('card', true); showK(3); setGuide(3);
   speak('결제 단계입니다. 금액을 확인하고, 카드 꽂기 버튼을 눌러 주세요.');
@@ -1572,8 +1666,12 @@ function doPay(){
     $('receipt-ask').classList.remove('hidden'); $('k-restart-row').classList.add('hidden');
     const st = stores[kStore];
     const o = {no, store:st.name, emoji:st.emoji, color:st.color, place:kPlace, pay:payMethod==='card'?'카드':'휴대폰',
-      items:cart.map(c=>({...c})), total:cart.reduce((a,c)=>a+c.price*c.count,0), time:nowStr(), date:fullDate(), status:0,
+      storeKey:kStore, ...(()=>{ const sub=cart.reduce((a,c)=>a+c.price*c.count,0), op=kBenefit?benefitOptions().find(x=>x.id===kBenefit):null, disc=op?op.calc(sub):0;
+        if(op&&op.coupon) op.coupon.used=true; return {sub, disc, discName:op?op.label.replace(/^\S+\s/,''):'', total:Math.max(0,sub-disc)}; })(),
+      items:cart.map(c=>({...c})), time:nowStr(), date:fullDate(), status:0,
       approval:String(10000000+Math.floor(Math.random()*89999999))};
+    kBenefit=null; renderMyBenefits();
+    $('done-benefit').innerHTML = o.storeKey==='cafe' ? '☕ <b>영수증을 받으면</b> 스탬프가 1개 찍혀요' : o.storeKey==='burger' ? '🎁 <b>주문 확인</b> 탭에서 별점을 남기면 감자튀김 쿠폰을 드려요' : (o.disc?`🎉 <b>${won(o.disc)}</b> 할인받았어요`:'⭐ 다 드시고 <b>주문 확인</b> 탭에서 별점을 남겨 주세요');
     orders.unshift(o); lastOrderNo=no; renderDoneItems(o); trackOrder(o); renderOrders();
     $('k-led').classList.remove('busy');
     cart=[]; renderCart(); showK(4); setGuide(4);
@@ -1585,7 +1683,8 @@ function receipt(yes){
   if(yes){
     const p=$('k-paper'); p.classList.remove('print'); void p.offsetWidth; p.classList.add('print');
     speak('영수증이 나오고 있어요. 키오스크 아래쪽 영수증 출구를 보세요.');
-    setTimeout(()=>showReceipt(lastOrderNo),1400);
+    const lo=orders.find(x=>x.no===lastOrderNo); if(lo) lo.receiptTaken=true;
+    setTimeout(()=>{ showReceipt(lastOrderNo); if(lo) setTimeout(()=>giveStamp(lo),600); },1400);
   } else {
     const p=$('k-paper'); p.classList.remove('print','slip'); void p.offsetWidth; p.classList.add('slip');
     speak('영수증 대신 번호표가 나오고 있어요. 키오스크 아래쪽 출구를 보세요.');
@@ -1598,6 +1697,162 @@ function kioskHome(){
   document.documentElement.style.setProperty('--store','#3182F6');
   $('k-title').textContent='어서 오세요'; $('k-subtitle').textContent='화면을 눌러 주문을 시작하세요';
   showK(0); setGuide(0); speak('처음 화면입니다. 가게를 골라 주세요.');
+}
+
+/* ================= 별점 · 혜택 ================= */
+const storeMeta = {
+  burger:{avg:4.5,count:1284,dist:[12,4,6,22,56],benefit:{type:'event',icon:'🎁',title:'영수증 리뷰 이벤트',short:'별점 남기면 감자튀김 무료',
+    desc:'주문하고 <b>별점</b>을 남기면 다음 주문 때 쓸 수 있는 <b>감자튀김 무료 쿠폰(2,000원)</b>을 드려요.'},
+    reviews:[{who:'김**',star:5,date:'11.24',tags:['맛있어요','빨리 나와요'],text:'불고기 버거 소스가 넉넉해서 좋아요. 키오스크도 글씨가 커서 편했어요.'},
+             {who:'박**',star:4,date:'11.22',tags:['양이 많아요'],text:'세트로 먹으니 배불러요. 감자튀김이 조금 짰어요.'},
+             {who:'이**',star:5,date:'11.20',tags:['친절해요'],text:'영수증 이벤트로 감자튀김 공짜로 먹었어요!'}]},
+  pizza:{avg:4.7,count:932,dist:[5,3,4,16,72],benefit:{type:'collab',icon:'🤝',title:'영화 콜라보 한정 메뉴',short:'〈귀신잡는 삼촌들〉 콜라보 피자',
+    desc:'영화 <b>〈귀신잡는 삼촌들〉</b>과 함께 만든 <b>한정 피자 세트</b>를 팔아요. 사면 <b>영화 포토카드</b>를 함께 드려요.'},
+    reviews:[{who:'최**',star:5,date:'11.25',tags:['맛있어요'],text:'고구마 피자 도우가 쫄깃해요. 손주들이 정말 좋아했어요.'},
+             {who:'정**',star:5,date:'11.23',tags:['포장이 깔끔해요'],text:'콜라보 세트 포토카드가 귀여워요. 영화도 보러 가려고요.'},
+             {who:'강**',star:4,date:'11.19',tags:['양이 많아요'],text:'라지 사이즈 넷이 먹기 딱 좋아요.'}]},
+  pasta:{avg:4.3,count:415,dist:[8,6,9,30,47],benefit:null,
+    reviews:[{who:'윤**',star:5,date:'11.24',tags:['맛있어요'],text:'로제 파스타가 부드럽고 맵지 않아서 좋았어요.'},
+             {who:'한**',star:4,date:'11.21',tags:['친절해요'],text:'분위기 좋아요. 면 양이 조금 적은 편이에요.'},
+             {who:'오**',star:3,date:'11.18',tags:[],text:'점심시간엔 오래 기다렸어요.'}]},
+  cafe:{avg:4.6,count:2051,dist:[6,4,7,24,59],benefit:{type:'event',icon:'☕',title:'영수증 스탬프 이벤트',short:'영수증 10장이면 아메리카노 무료',
+    desc:'주문하고 <b>영수증을 받으면</b> 도장이 1개 찍혀요. <b>10개</b>를 모으면 <b>아메리카노 1잔 무료 쿠폰</b>을 드려요.'},
+    reviews:[{who:'서**',star:5,date:'11.25',tags:['친절해요'],text:'대추차가 진하고 따뜻해요. 스탬프 다 모아서 공짜 커피 먹었어요.'},
+             {who:'임**',star:5,date:'11.24',tags:['맛있어요'],text:'믹스커피 라떼 옛날 맛 그대로예요.'},
+             {who:'신**',star:4,date:'11.20',tags:['빨리 나와요'],text:'빙수 양이 많아서 둘이 먹어도 돼요.'}]},
+  tteok:{avg:4.8,count:3127,dist:[3,2,4,15,76],benefit:null,
+    reviews:[{who:'황**',star:5,date:'11.26',tags:['맛있어요','양이 많아요'],text:'옛날 밀떡볶이 진짜 학교 앞 그 맛이에요. 순한 맛도 있어서 좋아요.'},
+             {who:'조**',star:5,date:'11.24',tags:['빨리 나와요'],text:'튀김을 국물에 버무려 달라고 하니 더 맛있어요.'},
+             {who:'유**',star:4,date:'11.22',tags:[],text:'김밥은 평범했어요. 떡볶이는 최고!'}]},
+  hansik:{avg:4.4,count:687,dist:[6,5,8,28,53],benefit:null,
+    reviews:[{who:'문**',star:5,date:'11.25',tags:['맛있어요'],text:'김치찌개가 집밥 같아요. 반찬도 계속 리필해 줘요.'},
+             {who:'배**',star:4,date:'11.23',tags:['양이 많아요'],text:'갈비탕 고기가 푸짐해요. 조금 비싼 편.'},
+             {who:'송**',star:4,date:'11.17',tags:['친절해요'],text:'사장님이 친절하세요. 잡곡밥 선택 좋아요.'}]},
+  chicken:{avg:4.6,count:1876,dist:[5,3,6,21,65],benefit:{type:'collab',icon:'🎬',title:'영화관 콜라보 할인',short:'영화표 있으면 10% 할인',
+    desc:'<b>쉬운세상 시네마</b>와 함께하는 이벤트예요. <b>영화 예매</b> 탭에서 산 <b>영화표</b>가 있으면 결제할 때 <b>10% 할인</b>돼요.'},
+    reviews:[{who:'권**',star:5,date:'11.26',tags:['맛있어요'],text:'영화 보고 와서 표 보여주니 할인해 줬어요. 반반 최고!'},
+             {who:'홍**',star:5,date:'11.23',tags:['빨리 나와요'],text:'옛날 통닭 바삭해요. 포장도 금방 나와요.'},
+             {who:'전**',star:4,date:'11.21',tags:['양이 많아요'],text:'오븐구이가 기름기 적어서 부모님이 좋아하세요.'}]}
+};
+Object.values(storeMeta).forEach(m=>{ m.sum = Math.round(m.avg*m.count*10)/10; });
+const starWords = ['','별로예요','아쉬워요','보통이에요','좋아요','최고예요'];
+const rateTags = ['맛있어요','양이 많아요','친절해요','빨리 나와요','포장이 깔끔해요','가격이 착해요'];
+let coupons = [], stamps = {cafe:8}, cpSeq = 0, kBenefit = null, rt = {};
+
+function avgOf(k){ const m=storeMeta[k]; return m.sum/m.count; }
+function starsHtml(v, cls){ let h=''; for(let i=1;i<=5;i++){ const f=Math.max(0,Math.min(1,v-(i-1))); h+=`<i class="st-i" style="--f:${Math.round(f*100)}%">★</i>`; } return `<span class="stars ${cls||''}" aria-label="별 ${v.toFixed(1)}개">${h}</span>`; }
+function storeRatingLine(k){ const m=storeMeta[k]; return `<span class="rate-line">★ <b>${avgOf(k).toFixed(1)}</b> <small>(${m.count.toLocaleString('ko-KR')})</small></span>`; }
+function benefitBadge(k){ const b=storeMeta[k].benefit; return b?`<span class="bn-badge ${b.type}">${b.icon} ${b.type==='event'?'이벤트':'콜라보'}</span>`:''; }
+
+function renderStoreInfo(){
+  const k=kStore, m=storeMeta[k], b=m.benefit, el=$('k-store-info'); if(!el) return;
+  const top=m.reviews[0];
+  el.innerHTML = `<button class="si-rate" onclick="showReviews('${k}')">
+      <span class="si-big">${avgOf(k).toFixed(1)}</span>
+      <span class="si-mid">${starsHtml(avgOf(k))}<small>리뷰 ${m.count.toLocaleString('ko-KR')}개</small></span>
+      <span class="si-more">리뷰 보기 ›</span></button>
+    ${top?`<p class="si-quote">"${escH(top.text)}" <small>— ${top.who} ${'★'.repeat(top.star)}</small></p>`:''}
+    ${b?`<div class="si-bn ${b.type}"><b>${b.icon} ${b.title}</b><span>${b.desc}</span>${k==='cafe'?stampRow():''}</div>`:''}`;
+}
+function stampRow(){ const n=stamps.cafe; let h=''; for(let i=0;i<10;i++) h+=`<i class="${i<n?'on':''}">${i<n?'☕':i+1}</i>`; return `<div class="stamp-card">${h}</div><small class="stamp-txt">지금 도장 <b>${n}개</b> · ${10-n}개 더 모으면 무료!</small>`; }
+
+function showReviews(k){
+  const m=storeMeta[k], s=stores[k], tot=m.dist.reduce((a,b)=>a+b,0);
+  openSheet(`<div style="display:flex;gap:14px;align-items:center"><div style="font-size:2.6rem">${pic(s.emoji)}</div><div><h3>${s.name} 리뷰</h3><p class="muted" style="font-weight:600">${s.desc}</p></div></div>
+    <div class="rv-sum"><div class="rv-avg"><b>${avgOf(k).toFixed(1)}</b>${starsHtml(avgOf(k))}<small>${m.count.toLocaleString('ko-KR')}명이 남겼어요</small></div>
+      <div class="rv-bars">${[5,4,3,2,1].map(n=>`<div><span>${n}점</span><i><em style="width:${Math.round(m.dist[n-1]/tot*100)}%"></em></i><small>${Math.round(m.dist[n-1]/tot*100)}%</small></div>`).join('')}</div></div>
+    ${m.benefit?`<div class="si-bn ${m.benefit.type}" style="margin-top:12px"><b>${m.benefit.icon} ${m.benefit.title}</b><span>${m.benefit.desc}</span></div>`:''}
+    <div class="rv-list">${m.reviews.map(r=>`<div class="rv"><div class="rv-top"><b>${r.who}${r.mine?' <span class="badge blue">내 리뷰</span>':''}</b>${starsHtml(r.star,'sm')}<small>${r.date}</small></div>
+      ${r.tags.length?`<div class="rv-tags">${r.tags.map(t=>`<span>${t}</span>`).join('')}</div>`:''}${r.text?`<p>${escH(r.text)}</p>`:''}</div>`).join('')}</div>
+    <div class="row-btns"><button class="btn btn-primary btn-lg" onclick="closeSheet()">닫기</button></div>`);
+  speak(`${s.name}의 별점은 5점 만점에 ${avgOf(k).toFixed(1)}점이에요. 리뷰는 ${m.count}개입니다.`);
+}
+
+/* 결제 화면 혜택 */
+function benefitOptions(){
+  const out=[], k=kStore;
+  coupons.filter(c=>c.store===k && !c.used).forEach(c=>out.push({id:'cp'+c.id, label:`🎟️ ${c.name}`, sub:`${won(c.amt)} 할인 · ${c.from}`, calc:()=>c.amt, coupon:c}));
+  if(k==='chicken'){
+    const has = tickets.some(t=>!t.canceled);
+    out.push({id:'movie', label:'🎬 영화표 콜라보 10% 할인', sub: has?'예매한 영화표가 있어요':'영화 예매 탭에서 표를 사면 쓸 수 있어요', calc:sub=>Math.round(sub*0.1/100)*100, off:!has});
+  }
+  return out;
+}
+function renderBenefits(){
+  const el=$('s-benefit'); if(!el) return;
+  const opts=benefitOptions(), sub=cart.reduce((a,c)=>a+c.price*c.count,0);
+  if(kBenefit && !opts.find(o=>o.id===kBenefit && !o.off)) kBenefit=null;
+  const b=storeMeta[kStore].benefit;
+  if(!opts.length){
+    el.innerHTML = b && kStore==='cafe' ? `<div class="bn-note">☕ 결제 후 <b>영수증을 받으면</b> 스탬프가 1개 찍혀요 (지금 ${stamps.cafe}/10)</div>`
+      : b && kStore==='burger' ? `<div class="bn-note">🎁 주문 후 <b>별점</b>을 남기면 감자튀김 무료 쿠폰을 드려요</div>` : '';
+  } else {
+    el.innerHTML = `<p class="bn-h">🎁 쓸 수 있는 혜택</p>` + opts.map(o=>`<button class="bn-opt ${kBenefit===o.id?'on':''}" ${o.off?'disabled':''} onclick="pickBenefit('${o.id}')"><span class="bx">${kBenefit===o.id?'✓':''}</span><span><b>${o.label}</b><small>${o.sub}</small></span>${o.off?'':`<em>−${won(o.calc(sub))}</em>`}</button>`).join('');
+  }
+  const disc = kBenefit ? opts.find(o=>o.id===kBenefit).calc(sub) : 0;
+  $('s-disc-row').classList.toggle('hidden', !disc);
+  $('s-sub').textContent = won(sub); $('s-disc').textContent = '−'+won(disc);
+  $('s-price').textContent = won(Math.max(0,sub-disc));
+}
+function pickBenefit(id){
+  kBenefit = kBenefit===id ? null : id; renderBenefits();
+  const o=benefitOptions().find(x=>x.id===id);
+  speak(kBenefit ? `${o.label.replace(/^\S+\s/,'')}을 적용했어요. 결제할 금액은 ${$('s-price').textContent}입니다.` : '혜택을 뺐어요.');
+}
+
+/* 별점 남기기 */
+function rateOrder(no){
+  const o=orders.find(x=>x.no===no); if(!o || o.rated) return;
+  rt = {no, star:0, tags:[], text:''}; renderRateSheet(); 
+  speak(`${o.store}는 어떠셨나요? 별을 눌러 점수를 주세요. 다섯 개가 가장 좋은 점수예요.`);
+}
+function renderRateSheet(){
+  const o=orders.find(x=>x.no===rt.no), k=o.storeKey, b=storeMeta[k].benefit;
+  const html = `<div style="text-align:center"><div style="font-size:2.6rem">${pic(o.emoji)}</div><h3>${o.store}<br>어떠셨나요?</h3><p class="desc" style="margin-top:4px">별을 눌러 점수를 주세요</p></div>
+    <div class="rate-stars">${[1,2,3,4,5].map(n=>`<button class="${n<=rt.star?'on':''}" onclick="rtStar(${n})" aria-label="${n}점">★</button>`).join('')}</div>
+    <p class="rate-word">${rt.star?`<b>${rt.star}점</b> · ${starWords[rt.star]}`:'&nbsp;'}</p>
+    <div class="opt-group"><label>좋았던 점 (여러 개 골라도 돼요)</label><div class="chips" style="margin:0">${rateTags.map(t=>`<button class="chip ${rt.tags.includes(t)?'on':''}" onclick="rtTag('${t}')">${t}</button>`).join('')}</div></div>
+    <div class="opt-group"><label for="rt-text">한 줄 리뷰 (안 써도 돼요)</label><textarea id="rt-text" class="rt-text" rows="2" maxlength="50" placeholder="예) 따뜻하고 맛있었어요" oninput="rt.text=this.value">${escH(rt.text)}</textarea></div>
+    ${b && k==='burger'?'<div class="tip"><span>🎁</span><span>별점을 남기면 <b>감자튀김 무료 쿠폰</b>을 드려요!</span></div>':''}
+    <div class="row-btns"><button class="btn btn-gray btn-lg" onclick="closeSheet()">나중에</button><button class="btn btn-primary btn-lg grow" onclick="submitRate()">별점 남기기</button></div>`;
+  const sh=document.querySelector('#modal-root .sheet');
+  if(sh && sh.dataset.rate){ const sc=sh.scrollTop; sh.innerHTML=html; sh.scrollTop=sc; } else { openSheet(html); const s2=document.querySelector('#modal-root .sheet'); if(s2) s2.dataset.rate='1'; }
+}
+function rtStar(n){ rt.star=n; renderRateSheet(); speak(`${n}점, ${starWords[n]}`); }
+function rtTag(t){ const i=rt.tags.indexOf(t); if(i>-1) rt.tags.splice(i,1); else rt.tags.push(t); renderRateSheet(); }
+function submitRate(){
+  if(!rt.star){ toast('먼저 <b>별</b>을 눌러 점수를 주세요','먼저 별을 눌러 점수를 주세요.'); return; }
+  const o=orders.find(x=>x.no===rt.no), k=o.storeKey, m=storeMeta[k];
+  const d=new Date();
+  m.sum += rt.star; m.count++; m.dist[rt.star-1]++;
+  m.reviews.unshift({who:'나', mine:true, star:rt.star, date:`${d.getMonth()+1}.${d.getDate()}`, tags:[...rt.tags], text:rt.text.trim()});
+  o.rated = rt.star;
+  closeSheet(); renderStores(); renderOrders();
+  let msg = `⭐ 별점 <b>${rt.star}점</b>을 남겼어요. 고마워요!`, say=`별점 ${rt.star}점을 남겼어요.`;
+  if(m.benefit && k==='burger'){
+    coupons.push({id:++cpSeq, store:'burger', name:'감자튀김 무료 쿠폰', amt:2000, from:'영수증 리뷰 이벤트', used:false});
+    msg += '<br>🎁 <b>감자튀김 무료 쿠폰</b>을 받았어요!'; say += ' 감자튀김 무료 쿠폰을 받았어요. 다음에 버거 가게에서 결제할 때 쓸 수 있어요.';
+    renderMyBenefits();
+  }
+  toast(msg, say);
+}
+function giveStamp(o){
+  if(o.storeKey!=='cafe' || o.stamped) return;
+  o.stamped = true; stamps.cafe++;
+  if(stamps.cafe>=10){
+    stamps.cafe = 0; o.stampFull = true;
+    coupons.push({id:++cpSeq, store:'cafe', name:'아메리카노 무료 쿠폰', amt:2500, from:'스탬프 10개', used:false});
+    toast('☕ 스탬프 10개를 다 모았어요!<br>🎟️ <b>아메리카노 무료 쿠폰</b>을 받았어요','스탬프 10개를 다 모았어요! 아메리카노 무료 쿠폰을 받았어요.');
+  } else toast(`☕ 스탬프가 찍혔어요 (<b>${stamps.cafe}/10</b>)`, `스탬프가 찍혔어요. 지금 ${stamps.cafe}개예요.`);
+  o.stampNow = stamps.cafe; renderMyBenefits();
+}
+function renderMyBenefits(){
+  const el=$('my-benefits'); if(!el) return;
+  const live=coupons.filter(c=>!c.used);
+  el.innerHTML = `<div class="stamp-wrap"><b>☕ 동네 카페 스탬프</b>${stampRow()}</div>` +
+    (live.length ? live.map(c=>`<div class="cp"><span class="cp-l">${pic(stores[c.store].emoji)}</span><span class="cp-m"><b>${c.name}</b><small>${stores[c.store].name} · ${c.from}</small></span><span class="cp-r num">${won(c.amt)}</span></div>`).join('')
+     : '<p class="muted" style="font-size:.93rem;margin-top:10px">아직 쿠폰이 없어요. 🍔 버거 가게에서 주문하고 별점을 남기거나, ☕ 카페 영수증 스탬프를 모아 보세요.</p>');
+  const n=$('cp-count'); if(n) n.textContent = live.length+'장';
 }
 
 /* ================= 영화 ================= */
@@ -2184,8 +2439,8 @@ function renderOrders(){
       <div class="track">${ordSteps.map((st,i)=>{ const done = i<o.status || o.status===3, now = i===o.status && o.status<3;
         return `<div class="tr ${done?'done':''} ${now?'now':''}"><i>${done?'✓':i+1}</i><span>${st}</span></div>`; }).join('')}</div>
       <div class="ord-items">${o.items.map(c=>`<div><span>${pic(c.e)} ${c.name}</span><em class="num">×${c.count}</em><b class="num">${won(c.price*c.count)}</b></div>`).join('')}</div>
-      <div class="ord-foot"><div><small>총 결제금액</small><b class="num">${won(o.total)}</b></div>
-        <div class="row-btns" style="margin:0"><button class="btn btn-gray btn-sm" onclick="showSlip('${o.no}')">🎫 번호표</button><button class="btn btn-gray btn-sm" onclick="showReceipt('${o.no}')">🧾 영수증</button>${o.status===2?`<button class="btn btn-primary btn-sm" onclick="pickUp('${o.no}')">✋ 받았어요</button>`:''}</div></div>
+      <div class="ord-foot"><div><small>총 결제금액${o.disc?` <span class="badge green">−${won(o.disc)} 할인</span>`:''}</small><b class="num">${won(o.total)}</b></div>
+        <div class="row-btns" style="margin:0;flex-wrap:wrap">${o.storeKey?(o.rated?`<span class="my-rate">내 별점 ${starsHtml(o.rated,'sm')}</span>`:`<button class="btn btn-soft btn-sm" onclick="rateOrder('${o.no}')">⭐ 별점 남기기</button>`):''}<button class="btn btn-gray btn-sm" onclick="showSlip('${o.no}')">🎫 번호표</button><button class="btn btn-gray btn-sm" onclick="showReceipt('${o.no}')">🧾 영수증</button>${o.status===2?`<button class="btn btn-primary btn-sm" onclick="pickUp('${o.no}')">✋ 받았어요</button>`:''}</div></div>
     </div>`; }).join('')
     : `<div class="empty"><div>🍽️</div><p>아직 주문한 음식이 없어요</p><button class="btn btn-soft btn-sm" onclick="switchView('kiosk')">키오스크에서 주문하러 가기</button></div>`;
   $('tk-list').innerHTML = tickets.length ? tickets.map(t=>`
@@ -2204,6 +2459,15 @@ function renderOrders(){
     </div>`).join('')
     : `<div class="empty"><div>🎬</div><p>아직 예매한 영화표가 없어요</p><button class="btn btn-soft btn-sm" onclick="switchView('movie')">영화 예매하러 가기</button></div>`;
 }
+function rcEvent(o){
+  const k=o.storeKey; if(!k || !storeMeta[k].benefit) return '';
+  if(k==='burger') return `<div class="rc-event"><b>★ 영수증 리뷰 이벤트 ★</b>별점을 남기면 다음 주문 때<br>감자튀김 무료 쿠폰(2,000원)을 드려요<br><small>앱 [주문 확인] → [별점 남기기]</small></div>`;
+  if(k==='cafe'){ const n = o.stamped ? (o.stampFull?10:o.stampNow) : stamps.cafe+1; let h=''; for(let i=0;i<10;i++) h+= i<n?'●':'○';
+    return `<div class="rc-event"><b>☕ 스탬프 이벤트</b><span class="rc-stamps">${h}</span>${o.stampFull||n>=10?'10개 완성! 아메리카노 무료 쿠폰 발급':`${n}/10 · ${10-n}개 더 모으면 아메리카노 무료`}</div>`; }
+  if(k==='chicken') return `<div class="rc-event"><b>🎬 쉬운세상 시네마 × 바삭 치킨</b>영화표를 보여 주면 치킨 10% 할인<br><small>${o.disc?'이번 주문에 할인이 적용됐어요':'다음엔 영화표로 할인받으세요'}</small></div>`;
+  if(k==='pizza') return `<div class="rc-event"><b>🤝 〈귀신잡는 삼촌들〉 콜라보</b>콜라보 피자 세트 주문 시 포토카드 증정<br><small>극장 상영 중 · 쉬운세상 시네마 5관</small></div>`;
+  return '';
+}
 function showReceipt(no){
   const o = orders.find(x=>x.no===no); if(!o) return;
   const vat = Math.round(o.total/11), f = n=>n.toLocaleString('ko-KR');
@@ -2217,6 +2481,7 @@ function showReceipt(no){
       <div class="rc-item rc-headrow"><span>메뉴</span><span>수량</span><span>금액</span></div>
       ${o.items.map(c=>`<div class="rc-item"><span>${c.name}</span><span>${c.count}</span><span>${f(c.price*c.count)}</span></div>`).join('')}
       <div class="rc-dash"></div>
+      ${o.disc?`<div class="rc-row"><span>주문 금액</span><span>${f(o.sub)}</span></div><div class="rc-row"><span>${o.discName}</span><span>-${f(o.disc)}</span></div>`:''}
       <div class="rc-row"><span>공급가액</span><span>${f(o.total-vat)}</span></div>
       <div class="rc-row"><span>부가세</span><span>${f(vat)}</span></div>
       <div class="rc-row rc-total"><span>합계</span><b>${won(o.total)}</b></div>
@@ -2224,6 +2489,7 @@ function showReceipt(no){
       <div class="rc-row"><span>결제</span><span>${o.pay==='카드'?'신용카드 1234-****-****-5678':'휴대폰 간편결제'}</span></div>
       <div class="rc-row"><span>승인번호</span><span>${o.approval}</span></div>
       ${barcode(o.no+o.approval)}
+      ${rcEvent(o)}
       <p class="rc-center rc-thanks">이용해 주셔서 감사합니다 :)</p>
     </div></div>
     <div class="row-btns"><button class="btn btn-primary btn-lg" onclick="closeSheet()">닫기</button></div>`, null, 'paper-bg');
@@ -2605,7 +2871,7 @@ renderStores(); setGuide(0); showK(0); renderCart();
 renderMovies(); renderDates(); renderTimes(); renderSeats();
 renderSendList(); makeKeypad($('send-keypad'), sendKey);
 tx=[{type:'in',who:'연습은행',amt:START_BAL,memo:'연습 통장 개설',t:nowStr()}];
-updBal(); renderReqForm(); renderReqs();
+updBal(); renderReqForm(); renderReqs(); renderMyBenefits();
 renderRecycle(); showRc('pet', true); renderQuiz(); txRender(true); hRender(true); renderOrders();
 </script>
 
