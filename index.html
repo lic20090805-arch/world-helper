@@ -840,6 +840,10 @@ body.hc .k-head,body.hc .k-btn,body.hc .check{background:var(--primary);color:#0
 body.hc .k-btn.gray{background:var(--surface-3);color:var(--text)}
 body.hc{background:#000}
 @media (max-width:520px){ html{font-size:16px} html.big{font-size:19px} h2{font-size:1.65rem} }
+.limit-row{display:flex;flex-wrap:wrap;gap:6px 14px;margin:-8px 0 16px;font-size:.88rem;font-weight:600;color:rgba(255,255,255,.8)}
+.limit-row b{color:#fff;font-weight:800}
+.amount-kr{font-size:1.05rem;font-weight:800;color:var(--primary);min-height:1.4em;margin-bottom:2px}
+.amount{overflow-wrap:anywhere}
 </style>
 
 <header class="appbar">
@@ -1053,7 +1057,8 @@ body.hc{background:#000}
   <div class="bank">
     <div class="acct">
       <div class="acct-top"><div class="acct-logo">연</div><div><b>연습은행 입출금 통장</b><small class="num">110-234-567890</small></div></div>
-      <div class="balance num" id="balance">1,500,000원</div>
+      <div class="balance num" id="balance">500,000,000원</div>
+      <div class="limit-row" id="limit-row"></div>
       <div class="row-btns">
         <button class="btn btn-gray" onclick="bankTab('recv')">받기</button>
         <button class="btn btn-primary" onclick="bankTab('send')">보내기</button>
@@ -1075,12 +1080,17 @@ body.hc{background:#000}
       <div class="card hidden" id="send-amt">
         <div class="to-line"><div><span class="muted" style="font-size:.9rem">받는 분</span><br><b id="send-to-name"></b> <small class="muted" id="send-to-acct"></small></div><button class="btn btn-gray btn-sm" onclick="sendBack()">바꾸기</button></div>
         <div class="amount num ph" id="send-amount">얼마를 보낼까요?</div>
-        <div class="amount-note" id="send-note">잔액 1,500,000원</div>
+        <div class="amount-kr" id="send-kr"></div>
+        <div class="amount-note" id="send-note">잔액 500,000,000원</div>
         <div class="chips">
           <button class="chip" onclick="addSend(10000)">+1만</button>
           <button class="chip" onclick="addSend(50000)">+5만</button>
           <button class="chip" onclick="addSend(100000)">+10만</button>
-          <button class="chip" onclick="setSendAll()">전액</button>
+          <button class="chip" onclick="addSend(1000000)">+100만</button>
+          <button class="chip" onclick="addSend(10000000)">+1000만</button>
+          <button class="chip" onclick="addSend(100000000)">+1억</button>
+          <button class="chip" onclick="setSendAll()">최대</button>
+          <button class="chip" onclick="sendAmt=0;updSendAmt()">지우기</button>
         </div>
         <div class="keypad" id="send-keypad"></div>
         <button class="btn btn-primary btn-lg btn-block" onclick="sendNext()">다음</button>
@@ -1105,10 +1115,14 @@ body.hc{background:#000}
         <div class="opt-group"><label>어떤 돈인가요?</label><div class="chips" id="req-why" style="margin:0"></div></div>
         <div class="opt-group"><label>얼마를 받을까요?</label>
           <div class="amount num ph" id="req-amount" style="margin-top:4px">0원</div>
+          <div class="amount-kr" id="req-kr"></div>
           <div class="chips">
             <button class="chip" onclick="addReq(10000)">+1만</button>
             <button class="chip" onclick="addReq(50000)">+5만</button>
             <button class="chip" onclick="addReq(100000)">+10만</button>
+            <button class="chip" onclick="addReq(1000000)">+100만</button>
+            <button class="chip" onclick="addReq(10000000)">+1000만</button>
+            <button class="chip" onclick="addReq(100000000)">+1억</button>
             <button class="chip" onclick="addReq(0)">지우기</button>
           </div>
         </div>
@@ -1907,7 +1921,24 @@ function showMvReceipt(code){
 }
 
 /* ================= 뱅킹 ================= */
-const START_BAL = 1500000;
+const START_BAL = 500000000;          // 연습 통장 잔액 5억원
+const LIMIT_ONCE = 300000000;         // 1회 이체 한도 3억원
+const LIMIT_DAY  = 1000000000;        // 하루 이체 한도 10억원
+const REQ_MAX    = 1000000000;        // 돈 요청 최대 10억원
+let sentToday = 0;
+function krWon(n){ // 123450000 -> 1억 2,345만원
+  if(!n) return '';
+  const eok=Math.floor(n/1e8), man=Math.floor(n%1e8/1e4), rest=n%1e4, out=[];
+  if(eok) out.push(eok.toLocaleString('ko-KR')+'억');
+  if(man) out.push(man.toLocaleString('ko-KR')+'만');
+  if(rest) out.push(rest.toLocaleString('ko-KR'));
+  return out.join(' ')+'원';
+}
+function sendMax(){ return Math.min(balance, LIMIT_ONCE, LIMIT_DAY-sentToday); }
+function renderLimits(){
+  const el=$('limit-row'); if(!el) return;
+  el.innerHTML = `<span>1회 한도 <b>${krWon(LIMIT_ONCE)}</b></span><span>오늘 남은 한도 <b>${krWon(LIMIT_DAY-sentToday)||'0원'}</b></span>`;
+}
 const people = [
   {id:'son',name:'아들',acct:'농협 123-4567-89',e:'👨'},
   {id:'dau',name:'딸',acct:'카카오뱅크 3333-98-7654',e:'👩'},
@@ -1919,7 +1950,7 @@ const reasons = ['빌려준 돈','모임 회비','물건 값','용돈'];
 let balance=START_BAL, tx=[], sendTo=null, sendAmt=0, pin='', reqWho=null, reqWhy=0, reqAmt=0, requests=[], reqSeq=0;
 
 function nowStr(){ const d=new Date(); return `${d.getMonth()+1}.${d.getDate()} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`; }
-function updBal(){ $('balance').textContent = won(balance); updSendAmt(); renderTx(); }
+function updBal(){ $('balance').textContent = won(balance); renderLimits(); updSendAmt(); renderTx(); }
 function bankTab(t){
   ['send','recv','hist'].forEach(k=>$('pane-'+k).classList.toggle('hidden',k!==t));
   document.querySelectorAll('#bank-seg button').forEach(b=>b.classList.toggle('on', b.dataset.t===t));
@@ -1941,23 +1972,29 @@ function makeKeypad(el, fn){
 }
 function sendKey(k){
   if(k==='⌫') sendAmt = Math.floor(sendAmt/10);
-  else { const v = Number(String(sendAmt)+k); if(v<=100000000) sendAmt=v; }
+  else { const v = Number(String(sendAmt)+k); if(v<=LIMIT_DAY) sendAmt=v; else toast('이체 한도는 하루 <b>10억원</b>까지예요','이체 한도는 하루 10억원까지예요.'); }
   updSendAmt();
 }
-function addSend(n){ sendAmt = Math.min(sendAmt+n, 100000000); updSendAmt(); speak(won(sendAmt)); }
-function setSendAll(){ sendAmt = balance; updSendAmt(); speak('잔액 전부 '+won(sendAmt)); }
+function addSend(n){ sendAmt = Math.min(sendAmt+n, LIMIT_DAY); updSendAmt(); speak(krWon(sendAmt)); }
+function setSendAll(){ sendAmt = sendMax(); updSendAmt(); speak('보낼 수 있는 최대 금액 '+krWon(sendAmt)); }
 function updSendAmt(){
   const a=$('send-amount'), n=$('send-note');
   if(!sendAmt){ a.textContent='얼마를 보낼까요?'; a.classList.add('ph'); }
   else { a.textContent=won(sendAmt); a.classList.remove('ph'); }
+  const kr=$('send-kr'); if(kr) kr.textContent = sendAmt ? krWon(sendAmt) : '';
   if(sendAmt>balance){ n.textContent='잔액이 부족해요 (잔액 '+won(balance)+')'; n.classList.add('err'); }
+  else if(sendAmt>LIMIT_ONCE){ n.textContent='한 번에 '+krWon(LIMIT_ONCE)+'까지 보낼 수 있어요'; n.classList.add('err'); }
+  else if(sendAmt>LIMIT_DAY-sentToday){ n.textContent='오늘 남은 한도는 '+(krWon(LIMIT_DAY-sentToday)||'0원')+'이에요'; n.classList.add('err'); }
   else { n.textContent='잔액 '+won(balance); n.classList.remove('err'); }
 }
 function sendNext(){
   if(!sendAmt){ toast('보낼 금액을 먼저 눌러 주세요','보낼 금액을 먼저 눌러 주세요.'); return; }
   if(sendAmt>balance){ toast('잔액보다 많이 보낼 수 없어요','잔액이 부족합니다.'); return; }
-  openSheet(`<div class="sheet-icon">${pic(sendTo.e)}</div><h3>${sendTo.name}님에게<br><span class="num">${won(sendAmt)}</span>을 보낼까요?</h3>
-    <div class="kv"><div><span>받는 계좌</span><b>${sendTo.acct}</b></div><div><span>보내는 금액</span><b class="num">${won(sendAmt)}</b></div><div><span>수수료</span><b>무료</b></div></div>
+  if(sendAmt>LIMIT_ONCE){ toast(`한 번에 <b>${krWon(LIMIT_ONCE)}</b>까지 보낼 수 있어요`,`한 번에 ${krWon(LIMIT_ONCE)}까지 보낼 수 있어요.`); return; }
+  if(sendAmt>LIMIT_DAY-sentToday){ toast('오늘 이체 한도를 넘었어요','오늘 이체 한도를 넘었어요.'); return; }
+  openSheet(`<div class="sheet-icon">${pic(sendTo.e)}</div><h3>${sendTo.name}님에게<br><span class="num">${won(sendAmt)}</span>을 보낼까요?</h3><p class="desc" style="margin-top:4px">${krWon(sendAmt)}</p>
+    <div class="kv"><div><span>받는 계좌</span><b>${sendTo.acct}</b></div><div><span>보내는 금액</span><b class="num">${won(sendAmt)}</b></div><div><span>읽는 법</span><b>${krWon(sendAmt)}</b></div><div><span>수수료</span><b>무료</b></div></div>
+    ${sendAmt>=10000000?'<div class="tip"><span>🔐</span><span><b>큰 돈</b>을 보낼 때 실제 은행에서는 <b>OTP</b>나 <b>휴대폰 인증</b>을 한 번 더 할 수 있어요. 금액의 <b>0의 개수</b>를 꼭 다시 세어 보세요.</span></div>':''}
     <div class="tip"><span>⚠️</span><span>받는 분 이름과 계좌를 <b>꼭 다시 확인</b>하세요. 모르는 사람이 보내 달라고 하면 보이스피싱일 수 있어요.</span></div>
     <div class="row-btns"><button class="btn btn-gray btn-lg" onclick="closeSheet()">취소</button><button class="btn btn-primary btn-lg grow" onclick="askPin()">보내기</button></div>`);
   speak(`${sendTo.name}님에게 ${won(sendAmt)}을 보낼까요? 맞으면 보내기를 누르세요.`);
@@ -1975,7 +2012,7 @@ function askPin(){
   speak('비밀번호 여섯 자리를 눌러 주세요.');
 }
 function finishSend(){
-  balance -= sendAmt;
+  balance -= sendAmt; sentToday += sendAmt;
   tx.unshift({type:'out', who:sendTo.name, amt:sendAmt, memo:'보냄', t:nowStr()});
   const who=sendTo, amt=sendAmt;
   updBal(); sendBack();
@@ -1989,10 +2026,10 @@ function finishSend(){
 function renderReqForm(){
   $('req-who').innerHTML = people.map(p=>`<button class="chip ${reqWho===p.id?'on':''}" onclick="pickReqWho('${p.id}')">${pic(p.e)} ${p.name}</button>`).join('');
   $('req-why').innerHTML = reasons.map((r,i)=>`<button class="chip ${reqWhy===i?'on':''}" onclick="reqWhy=${i};renderReqForm()">${r}</button>`).join('');
-  const a=$('req-amount'); a.textContent=won(reqAmt); a.classList.toggle('ph', !reqAmt);
+  const a=$('req-amount'); a.textContent=won(reqAmt); a.classList.toggle('ph', !reqAmt); const k=$('req-kr'); if(k) k.textContent=krWon(reqAmt);
 }
 function pickReqWho(id){ reqWho=id; renderReqForm(); speak(people.find(p=>p.id===id).name+'에게 요청합니다.'); }
-function addReq(n){ reqAmt = n? Math.min(reqAmt+n,10000000):0; renderReqForm(); speak(won(reqAmt)); }
+function addReq(n){ reqAmt = n? Math.min(reqAmt+n,REQ_MAX):0; renderReqForm(); speak(n?krWon(reqAmt):'금액을 지웠어요'); }
 function copyAcct(){
   try{ navigator.clipboard && navigator.clipboard.writeText('연습은행 110-234-567890'); }catch(e){}
   toast('📋 계좌번호를 복사했어요. 문자나 카톡 창을 길게 눌러 <b>붙여넣기</b> 하세요','계좌번호를 복사했습니다. 문자 창을 길게 눌러 붙여넣기 하세요.');
@@ -2053,7 +2090,7 @@ function renderTx(){
     || '<p class="muted">거래내역이 없어요.</p>';
 }
 function resetBank(){
-  balance=START_BAL; requests=[]; tx=[{type:'in',who:'연습은행',amt:START_BAL,memo:'연습 통장 개설',t:nowStr()}];
+  balance=START_BAL; sentToday=0; requests=[]; tx=[{type:'in',who:'연습은행',amt:START_BAL,memo:'연습 통장 개설',t:nowStr()}];
   sendBack(); updBal(); renderReqs(); toast('🔄 통장을 처음 상태로 되돌렸어요','통장을 처음 상태로 되돌렸습니다.');
 }
 
