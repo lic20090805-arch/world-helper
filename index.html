@@ -1194,6 +1194,7 @@ body.hc .help-fab{background:var(--primary);color:#000;box-shadow:none}
 .help-grid button{display:flex;flex-direction:column;align-items:center;gap:4px;padding:14px 8px;border-radius:16px;background:var(--surface-2);border:2px solid var(--line);font-weight:800;font-size:.98rem;line-height:1.3}
 .help-grid button span{font-size:1.6rem}
 .help-grid button:hover{border-color:#FF9A3D}
+.help-grid button:last-child:nth-child(odd){grid-column:1/-1}
 .help-grid button.on{border-color:#FF7A00;background:#FFF4E6}
 .help-note{margin-top:14px;font-size:.9rem;color:var(--text-3);font-weight:600;text-align:center}
 .help-flash{animation:helpflash 1s ease-in-out 3;border-radius:28px}
@@ -3585,7 +3586,7 @@ const helpInfo = {
   orders:{name:'🧾 주문 확인', main:'.card',
     tip:'주문한 음식, 영화표, 병원 접수를 모아 보는 곳이에요. <b>영수증</b>을 누르면 결제 내역을 볼 수 있고, 음식은 <b>별점</b>도 남길 수 있어요.'}
 };
-function sayNow(t){ const was=speechOn; speechOn=true; speak(t); speechOn=was; }
+
 function helpText(){
   const v=document.body.dataset.view||'kiosk', inf=helpInfo[v], view=$('view-'+v);
   const g=view.querySelector('.guide-text'), steps=[...view.querySelectorAll('.stepper .st')];
@@ -3601,7 +3602,7 @@ function openHelp(){
       <div class="help-steps">${steps.map((x,i)=>`<i class="${i<nowI?'d':i===nowI?'n':''}"></i>`).join('')}</div>`:''}
     <div class="help-now">👉 ${guide}</div>
     <div class="help-grid">
-      <button onclick="sayNow(helpText().guide)"><span>🔊</span>소리로 읽어 주기</button>
+
       <button onclick="helpShow()"><span>📍</span>연습 화면 보기</button>
       ${inf.reset?`<button onclick="helpReset()"><span>🏠</span>처음부터 다시</button>`:''}
       <button class="${big?'on':''}" onclick="toggleBig();openHelp()"><span>가</span>${big?'글씨 보통으로':'글씨 크게'}</button>
@@ -3610,7 +3611,7 @@ function openHelp(){
     </div>
     <p class="help-note">그래도 어려우면 가족에게 이 화면을 보여 주세요 😊</p>
     <div class="row-btns"><button class="btn btn-primary btn-lg" onclick="closeSheet()">닫기</button></div>`);
-  sayNow('지금은 '+inf.name.replace(/^\S+\s/,'')+' 연습 중이에요. '+guide.replace(/<[^>]+>/g,''));
+
 }
 function helpShow(){
   closeSheet();
